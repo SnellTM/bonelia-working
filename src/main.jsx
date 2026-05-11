@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
-import { createRoot } from 'react-dom/client'
-import { Heart, MessageCircle, Truck, Clock, MapPin, Instagram, Sparkles, PackageCheck, Star, Menu, X } from 'lucide-react'
+import { Heart, MessageCircle, Truck, Clock, MapPin, Camera, Sparkles, PackageCheck, Star, Menu, X } from "lucide-react";
 import './styles.css'
 
 const WHATSAPP_NUMBERS = {
