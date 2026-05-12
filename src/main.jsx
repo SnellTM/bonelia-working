@@ -8,6 +8,8 @@ const WHATSAPP_NUMBERS = {
   alternativo: '5493624910570',
 }
 
+const INSTAGRAM_URL = 'https://instagram.com/somosbonelia'
+
 const flavors = [
   {
     id: 'vainilla',
@@ -96,7 +98,7 @@ function App() {
           <a href="#pedidos">Pedidos</a>
           <a href="#contacto">Contacto</a>
         </div>
-        <a className="navButton" href={whatsappLink()} target="_blank">Pedir</a>
+        <a className="navButton" href={whatsappLink()} target="_blank" rel="noreferrer">Pedir</a>
         <button className="mobileBtn" onClick={() => setMenu(!menu)}>{menu ? <X/> : <Menu/>}</button>
       </nav>
 
@@ -117,7 +119,7 @@ function App() {
           <h1>Budines artesanales recién horneados</h1>
           <p className="lead">Pequeños placeres para endulzar el día. Caseros, cercanos y con presentación cuidada.</p>
           <div className="actions">
-            <a className="primary" href={whatsappLink()} target="_blank"><MessageCircle size={19}/> Hacer pedido</a>
+            <a className="primary" href={whatsappLink()} target="_blank" rel="noreferrer"><MessageCircle size={19}/> Hacer pedido</a>
             <a className="secondary" href="#sabores">Ver sabores</a>
           </div>
           <div className="miniCards">
@@ -172,7 +174,7 @@ function App() {
             </div>
             <div className="priceRow">
               <strong>{selected.precio}</strong>
-              <a className="primary" href={whatsappLink(selected.carta)} target="_blank">
+              <a className="primary" href={whatsappLink(selected.carta)} target="_blank" rel="noreferrer">
                 <MessageCircle size={19}/> Pedir este sabor
               </a>
             </div>
@@ -209,8 +211,8 @@ function App() {
           <h2>Pedidos abiertos para el fin de semana</h2>
           <p>Tomamos pedidos jueves y viernes. Los cupos son limitados para mantener la calidad.</p>
           <div className="actions center">
-            <a className="lightBtn" href={whatsappLink()} target="_blank">WhatsApp principal</a>
-            <a className="outlineLight" href={whatsappLink('', WHATSAPP_NUMBERS.alternativo)} target="_blank">WhatsApp alternativo</a>
+            <a className="lightBtn" href={whatsappLink()} target="_blank" rel="noreferrer">WhatsApp principal</a>
+            <a className="outlineLight" href={whatsappLink('', WHATSAPP_NUMBERS.alternativo)} target="_blank" rel="noreferrer">WhatsApp alternativo</a>
           </div>
         </div>
       </section>
@@ -223,12 +225,14 @@ function App() {
         <div className="contactCards">
           <div><MapPin/><strong>Resistencia, Chaco</strong><span>Parodi 236 · retiro o envío a coordinar</span></div>
           <div><Clock/><strong>Pedidos</strong><span>Jueves y viernes</span></div>
-          <div><Camera/><strong>Instagram</strong><span>Próximamente</span></div>
+          <a className="contactLink" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+            <div><Camera/><strong>Instagram</strong><span>@somosbonelia</span></div>
+          </a>
         </div>
 
         <div className="actions center">
-          <a className="primary" href={whatsappLink()} target="_blank">WhatsApp principal</a>
-          <a className="secondary" href={whatsappLink('', WHATSAPP_NUMBERS.alternativo)} target="_blank">WhatsApp alternativo</a>
+          <a className="primary" href={whatsappLink()} target="_blank" rel="noreferrer">WhatsApp principal</a>
+          <a className="secondary" href={whatsappLink('', WHATSAPP_NUMBERS.alternativo)} target="_blank" rel="noreferrer">WhatsApp alternativo</a>
         </div>
 
         <div className="reviews">
