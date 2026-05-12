@@ -53,3 +53,87 @@ main{overflow:hidden;background:radial-gradient(circle at 10% 0%,#fad0ca 0,trans
   }
 
 }
+/* BONELIA VISUAL UPGRADE + INSTAGRAM */
+
+main{
+  position: relative;
+}
+
+main::before,
+main::after{
+  content:"";
+  position:fixed;
+  z-index:0;
+  pointer-events:none;
+  width:360px;
+  height:360px;
+  opacity:.26;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(169,78,89,.12), transparent 60%),
+    url("https://images.unsplash.com/photo-1527824404775-dce343118ebc?q=80&w=600&auto=format&fit=crop");
+  background-size:cover;
+  background-position:center;
+  filter:sepia(.25) saturate(.55) opacity(.55);
+  border-radius:50%;
+  mask-image: radial-gradient(circle, black 35%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle, black 35%, transparent 72%);
+}
+
+main::before{
+  top:95px;
+  left:-150px;
+  transform:rotate(-12deg);
+}
+
+main::after{
+  bottom:120px;
+  right:-150px;
+  transform:rotate(14deg);
+}
+
+.section{
+  z-index:2;
+}
+
+.logoText{
+  letter-spacing:.24em;
+  color:#4b2622;
+  text-shadow:0 2px 16px rgba(255,255,255,.38);
+}
+
+.hero h1{
+  text-shadow:0 10px 30px rgba(255,255,255,.28);
+}
+
+.contactLink{
+  display:block;
+  border-radius:28px;
+  transition:.25s;
+}
+
+.contactLink:hover{
+  transform:translateY(-4px);
+}
+
+.contactLink div{
+  height:100%;
+}
+
+@media (max-width:900px){
+  main::before,
+  main::after{
+    width:230px;
+    height:230px;
+    opacity:.16;
+  }
+
+  main::before{
+    left:-120px;
+    top:160px;
+  }
+
+  main::after{
+    right:-120px;
+    bottom:190px;
+  }
+}
