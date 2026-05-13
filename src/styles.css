@@ -348,3 +348,196 @@ main::after{
     animation-duration:22s !important;
   }
 }
+/* BONELIA DECOR PREMIUM - ASSETS REALES */
+
+/* Apaga definitivamente decoraciones viejas dibujadas con CSS */
+.botanical,
+.botanical::before,
+.botLeft,
+.botRight,
+.botanical.small,
+.botanical.small.left,
+.botanical.small.right,
+.botanical.bottom,
+.hero::before,
+.hero::after,
+.sectionTitle::before,
+.sectionTitle::after,
+.flavorsSection::before,
+.orderSection::before,
+.footer::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Textura global suave */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/decor/paper-grain.png");
+  background-repeat: repeat;
+  background-size: 360px 360px;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Decoraciones con imágenes reales */
+.boneliaDecor {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.boneliaDecor img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+}
+
+.heroFlower {
+  top: 115px;
+  right: -20px;
+  width: 190px;
+  opacity: 0.42;
+}
+
+.heroPetals {
+  bottom: 70px;
+  left: -20px;
+  width: 125px;
+  opacity: 0.32;
+}
+
+/* SABORES */
+.flavorsSection {
+  position: relative;
+  overflow: hidden;
+}
+
+.flavorsBranch {
+  top: 70px;
+  left: 3vw;
+  width: 145px;
+  opacity: 0.22;
+}
+
+.flavorsPetals {
+  right: 3vw;
+  bottom: 40px;
+  width: 120px;
+  opacity: 0.28;
+}
+
+/* PEDIDOS */
+.orderSection {
+  position: relative;
+  overflow: hidden;
+}
+
+.ordersFlower {
+  top: 70px;
+  right: 5vw;
+  width: 135px;
+  opacity: 0.16;
+}
+
+/* CTA */
+.ctaCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaBranch {
+  left: 22px;
+  top: 50%;
+  width: 145px;
+  opacity: 0.12;
+  transform: translateY(-50%);
+}
+
+/* FOOTER */
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.footerPetals {
+  right: 4vw;
+  bottom: 28px;
+  width: 135px;
+  opacity: 0.18;
+}
+
+/* Sombras más cálidas */
+.flavorCard {
+  box-shadow: 0 18px 42px rgba(142, 47, 59, 0.10);
+  border-color: rgba(184, 106, 112, 0.22);
+}
+
+.flavorCard:hover,
+.flavorCard.active {
+  box-shadow: 0 24px 54px rgba(142, 47, 59, 0.16);
+}
+
+.selectedPanel {
+  box-shadow: 0 30px 75px rgba(142, 47, 59, 0.12);
+}
+
+.ctaCard {
+  box-shadow: 0 34px 90px rgba(142, 47, 59, 0.26);
+}
+
+.contactBox div {
+  box-shadow: 0 18px 42px rgba(142, 47, 59, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .heroFlower {
+    width: 115px;
+    right: -38px;
+    top: 90px;
+    opacity: 0.30;
+  }
+
+  .heroPetals {
+    display: none;
+  }
+
+  .flavorsBranch {
+    width: 95px;
+    left: -28px;
+    top: 58px;
+    opacity: 0.14;
+  }
+
+  .flavorsPetals {
+    display: none;
+  }
+
+  .ordersFlower {
+    width: 90px;
+    right: -26px;
+    top: 50px;
+    opacity: 0.10;
+  }
+
+  .ctaBranch {
+    display: none;
+  }
+
+  .footerPetals {
+    width: 92px;
+    right: -26px;
+    bottom: 40px;
+    opacity: 0.12;
+  }
+}
