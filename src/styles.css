@@ -39,3 +39,4 @@
     max-width:420px;
   }
 }
+/* AJUSTE FOTOS REALES BONELIA */ .photoCake{ width:100%; height:165px; border-radius:22px; overflow:hidden; background:rgba(255,247,239,.62); box-shadow:0 16px 35px rgba(80,44,34,.12); } .photoCake img{ width:100%; height:100%; object-fit:cover; display:block; } .photoCakeFeatured{ width:100%; height:100%; min-height:300px; border-radius:34px; } .photoCakeFeatured img{object-fit:cover} .flavorCard.withPhoto .photoCake{height:150px;margin-bottom:16px} .heroProduct .photoCakeFeatured{width:min(560px,100%);height:340px} .selectedVisual .photoCakeFeatured{height:330px;min-height:330px} @media (max-width:900px){ .heroProduct .photoCakeFeatured{width:100%;height:255px;min-height:255px} .selectedVisual .photoCakeFeatured{height:250px;min-height:250px} .flavorCard.withPhoto .photoCake{height:170px;margin-bottom:18px} }
