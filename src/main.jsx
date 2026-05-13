@@ -253,8 +253,13 @@ function App() {
       )}
 
       <section id="inicio" className="hero section">
-        <div className="botanical botLeft"></div>
-        <div className="botanical botRight"></div>
+  <div className="boneliaDecor heroFlower" aria-hidden="true">
+    <img src="/decor/flower-blur-1.webp" alt="" />
+  </div>
+
+  <div className="boneliaDecor heroPetals" aria-hidden="true">
+    <img src="/decor/petals-soft-1.webp" alt="" />
+  </div>
 
         <div className="heroText reveal">
           <div className="pill">
@@ -267,7 +272,7 @@ function App() {
 
           <h1>Budines artesanales recién horneados</h1>
           <p className="lead">
-            Budines artesanales preparados a pedido, con sabores clásicos, detalles cuidados y ese toque dulce que alegra el día.
+            Budines artesanales preparados a pedido, con  clásicos, detalles cuidados y ese toque dulce que alegra el día.
           </p>
 
           <div className="actions">
@@ -290,8 +295,13 @@ function App() {
       </section>
 
       <section id="sabores" className="section flavorsSection">
-        <div className="botanical small left"></div>
-        <div className="botanical small right"></div>
+  <div className="boneliaDecor flavorsBranch" aria-hidden="true">
+    <img src="/decor/botanical-branch-1.webp" alt="" />
+  </div>
+
+  <div className="boneliaDecor flavorsPetals" aria-hidden="true">
+    <img src="/decor/petals-soft-2.webp" alt="" />
+  </div>
 
         <div className="sectionTitle reveal">
           <small>SABORES</small>
@@ -359,9 +369,10 @@ function App() {
         </div>
       </section>
 
-      <section id="pedidos" className="section orderSection">
-        <div className="botanical small left bottom"></div>
-        <div className="botanical small right bottom"></div>
+<section id="pedidos" className="section orderSection">
+  <div className="boneliaDecor ordersFlower" aria-hidden="true">
+    <img src="/decor/flower-blur-2.webp" alt="" />
+  </div>
 
         <div className="sectionTitle reveal">
           <small>PEDIDOS</small>
@@ -386,8 +397,11 @@ function App() {
         </div>
       </section>
 
-      <section className="section ctaSection reveal">
-        <div className="ctaCard">
+<section className="section ctaSection reveal">
+  <div className="ctaCard">
+    <div className="boneliaDecor ctaBranch" aria-hidden="true">
+      <img src="/decor/botanical-branch-2.webp" alt="" />
+    </div>
           <Logo word={false} />
 
           <div>
@@ -411,8 +425,12 @@ function App() {
         </div>
       </section>
 
-      <section id="contacto" className="footer section">
-        <div className="contactBox">
+<section id="contacto" className="footer section">
+  <div className="boneliaDecor footerPetals" aria-hidden="true">
+    <img src="/decor/petals-soft-1.webp" alt="" />
+  </div>
+
+  <div className="contactBox">
           <div>
             <MapPin />
             <strong>Resistencia, Chaco</strong>
