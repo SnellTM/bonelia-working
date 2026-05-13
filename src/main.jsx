@@ -33,6 +33,8 @@ import logoMark from "./assets/bonelia-mark.png";
 
 import vainillaFoto from "./assets/vainilla.png";
 import chocolateFoto from "./assets/chocolate.png";
+import limonFoto from "./assets/limon.png";
+import frutosFoto from "./assets/frutos-secos.png";
 import marmoladoFoto from "./assets/marmolado.png";
 
 import "./styles.css";
