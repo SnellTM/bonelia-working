@@ -110,8 +110,8 @@ const reviews = [
 
 function whatsappLink(flavor = "", phone = WHATSAPP_NUMBERS.principal) {
   const text = flavor
-    ? `Hola Bonelia 💕 quiero hacer un pedido de ${flavor}.\n\nNombre:\nCantidad:\nRetiro o envío:\nMedio de pago:`
-    : `Hola Bonelia 💕 quiero hacer un pedido.\n\nNombre:\nSabor:\nCantidad:\nRetiro o envío:\nMedio de pago:\nFecha y hora`;
+    ? `Hola Bonelia 💕 quiero hacer un pedido de ${flavor}.\n\nNombre:\nCantidad:\nRetiro o envío:\nMedio de pago:\nFecha y hora:`
+    : `Hola Bonelia 💕 quiero hacer un pedido.\n\nNombre:\nSabor:\nCantidad:\nRetiro o envío:\nMedio de pago:\nFecha y hora:`;
   return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 }
 
@@ -138,27 +138,24 @@ function FlavorVisual({ flavor, featured = false }) {
   );
 }
 
-function HeroCarousel({ items, onSelect }) {
+function HeroCarousel({ items }) {
   const [index, setIndex] = useState(4);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     if (paused) return;
+
     const timer = setInterval(() => {
       setIndex((current) => (current + 1) % items.length);
     }, 2000);
+
     return () => clearInterval(timer);
   }, [paused, items.length]);
 
   const goTo = (nextIndex) => {
     const normalized = (nextIndex + items.length) % items.length;
     setIndex(normalized);
-    onSelect(items[normalized]);
   };
-
-  useEffect(() => {
-    onSelect(items[index]);
-  }, [index]);
 
   const current = items[index];
 
@@ -171,7 +168,7 @@ function HeroCarousel({ items, onSelect }) {
       <div className="carouselImageWrap" key={current.id}>
         <img src={current.foto} alt={current.nombre} />
         <div className="carouselCaption">
-          <small>Sabor destacado</small>
+          <small>Galería Bonelia</small>
           <strong>{current.carta}</strong>
         </div>
       </div>
@@ -203,14 +200,18 @@ function HeroCarousel({ items, onSelect }) {
 }
 
 function FloatingReviews() {
+  const loopReviews = [...reviews, ...reviews];
+
   return (
     <div className="reviewsCloud" aria-label="Comentarios de clientes">
-      {reviews.map((review, index) => (
-        <span key={review} className={`reviewBubble bubble${index + 1}`}>
-          <Star size={15} />
-          {review}
-        </span>
-      ))}
+      <div className="reviewsTrack">
+        {loopReviews.map((review, index) => (
+          <span key={`${review}-${index}`} className="reviewBubble">
+            <Star size={15} />
+            {review}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
@@ -253,17 +254,17 @@ function App() {
       )}
 
       <section id="inicio" className="hero section">
-  <div className="boneliaDecor heroFlower" aria-hidden="true">
-    <img src="/decor/flower-blur-1.png" alt="" />
-  </div>
+        <div className="boneliaDecor heroFlower" aria-hidden="true">
+          <img src="/decor/flower-blur-1.png" alt="" />
+        </div>
 
-  <div className="boneliaDecor heroPetals" aria-hidden="true">
-    <img src="/decor/petals-soft-1.webp" alt="" />
-  </div>
+        <div className="boneliaDecor heroPetals" aria-hidden="true">
+          <img src="/decor/petals-soft-1.webp" alt="" />
+        </div>
 
         <div className="heroText reveal">
           <div className="pill">
-            <Sparkles size={17} /> Pedidos jueves y viernes · cupos limitados
+            <Sparkles size={17} /> Pedidos con 12 hs de anticipación · calidad garantizada
           </div>
 
           <div className="heroLogo">
@@ -272,7 +273,7 @@ function App() {
 
           <h1>Budines artesanales recién horneados</h1>
           <p className="lead">
-            Budines artesanales preparados a pedido, con  clásicos, detalles cuidados y ese toque dulce que alegra el día.
+            Budines artesanales preparados a pedido, con sabores clásicos, detalles cuidados y ese toque dulce que alegra el día.
           </p>
 
           <div className="actions">
@@ -284,7 +285,7 @@ function App() {
         </div>
 
         <div className="heroProduct reveal delay">
-          <HeroCarousel items={flavors} onSelect={setSelected} />
+          <HeroCarousel items={flavors} />
         </div>
 
         <div className="miniCards">
@@ -295,13 +296,13 @@ function App() {
       </section>
 
       <section id="sabores" className="section flavorsSection">
-  <div className="boneliaDecor flavorsBranch" aria-hidden="true">
-    <img src="/decor/botanical-branch-1.webp" alt="" />
-  </div>
+        <div className="boneliaDecor flavorsBranch" aria-hidden="true">
+          <img src="/decor/botanical-branch-1.webp" alt="" />
+        </div>
 
-  <div className="boneliaDecor flavorsPetals" aria-hidden="true">
-    <img src="/decor/petals-soft-2.webp" alt="" />
-  </div>
+        <div className="boneliaDecor flavorsPetals" aria-hidden="true">
+          <img src="/decor/petals-soft-2.webp" alt="" />
+        </div>
 
         <div className="sectionTitle reveal">
           <small>SABORES</small>
@@ -369,22 +370,22 @@ function App() {
         </div>
       </section>
 
-<section id="pedidos" className="section orderSection">
-  <div className="boneliaDecor ordersFlower" aria-hidden="true">
-    <img src="/decor/flower-blur-2.webp" alt="" />
-  </div>
+      <section id="pedidos" className="section orderSection">
+        <div className="boneliaDecor ordersFlower" aria-hidden="true">
+          <img src="/decor/flower-blur-2.webp" alt="" />
+        </div>
 
         <div className="sectionTitle reveal">
           <small>PEDIDOS</small>
           <h2>Reservá tu budín artesanal</h2>
-          <p>Elegí el sabor, escribinos por WhatsApp y coordinamos retiro o envío.</p>
+          <p>Pedí con 12 hs de anticipación para que podamos prepararlo con tiempo, cuidado y la mejor calidad.</p>
         </div>
 
         <div className="steps">
           {[
             [Heart, "Elegí", "Mirá los sabores disponibles."],
             [MessageCircle, "Escribinos", "Te respondemos para coordinar sabor, cantidad y entrega."],
-            [Truck, "Coordinamos", "Retirás en el local o también te lo enviamos ."],
+            [Truck, "Coordinamos", "Retirás en el local o también te lo enviamos."],
             [Gift, "Disfrutá", "Tu budín sale cuidado y fresco."],
           ].map(([Icon, title, text], i) => (
             <div className="step reveal" style={{ animationDelay: `${i * 0.08}s` }} key={title}>
@@ -397,16 +398,17 @@ function App() {
         </div>
       </section>
 
-<section className="section ctaSection reveal">
-  <div className="ctaCard">
-    <div className="boneliaDecor ctaBranch" aria-hidden="true">
-      <img src="/decor/botanical-branch-2.webp" alt="" />
-    </div>
+      <section className="section ctaSection reveal">
+        <div className="ctaCard">
+          <div className="boneliaDecor ctaBranch" aria-hidden="true">
+            <img src="/decor/botanical-branch-2.webp" alt="" />
+          </div>
+
           <Logo word={false} />
 
           <div>
-            <h2>Pedidos abiertos </h2>
-            <p>Tomamos pedidos con 12hs de anticipación. Los cupos son limitados para mantener la calidad.</p>
+            <h2>Pedidos abiertos</h2>
+            <p>Tomamos pedidos con 12 hs de anticipación para garantizar frescura, organización y una presentación cuidada.</p>
           </div>
 
           <div className="actions ctaActions">
@@ -425,22 +427,22 @@ function App() {
         </div>
       </section>
 
-<section id="contacto" className="footer section">
-  <div className="boneliaDecor footerPetals" aria-hidden="true">
-    <img src="/decor/petals-soft-1.webp" alt="" />
-  </div>
+      <section id="contacto" className="footer section">
+        <div className="boneliaDecor footerPetals" aria-hidden="true">
+          <img src="/decor/petals-soft-1.webp" alt="" />
+        </div>
 
-  <div className="contactBox">
+        <div className="contactBox">
           <div>
             <MapPin />
             <strong>Resistencia, Chaco</strong>
-            <span>Parodi 230· retiro o envío a coordinar</span>
+            <span>Parodi 230 · retiro o envío a coordinar</span>
           </div>
 
           <div>
             <Clock />
             <strong>Pedidos</strong>
-            <span>Con 12hs de Anticipación</span>
+            <span>Con 12 hs de anticipación</span>
           </div>
 
           <a className="contactLink" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
