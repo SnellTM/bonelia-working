@@ -1,35 +1,12 @@
 import { createRoot } from "react-dom/client";
 import { useState } from "react";
 import {
-  Heart,
-  MessageCircle,
-  Truck,
-  Clock,
-  MapPin,
-  Camera,
-  Sparkles,
-  Star,
-  Menu,
-  X,
-  Scale,
-  ChefHat,
-  Gift
+  Heart, MessageCircle, Truck, Clock, MapPin, Camera, Sparkles,
+  Star, Menu, X, Scale, ChefHat, Gift
 } from "lucide-react";
 
 import logoWordmark from "./assets/bonelia-wordmark.png";
 import logoMark from "./assets/bonelia-mark.png";
-
-/*
-  PARA CAMBIAR FOTOS EN EL FUTURO:
-  1) Subí la foto a src/assets/
-  2) Agregá el import acá arriba, por ejemplo:
-     import limonFoto from "./assets/limon.png";
-  3) En el sabor correspondiente poné:
-     foto: limonFoto,
-
-  Si no tenés foto todavía, dejá:
-     foto: null,
-*/
 
 import vainillaFoto from "./assets/vainilla.png";
 import chocolateFoto from "./assets/chocolate.png";
@@ -55,7 +32,6 @@ const flavors = [
     descripcion:
       "Budín clásico de vainilla, suave, esponjoso y delicado, con terminación artesanal y azúcar impalpable.",
     precio: "$ 3.000",
-    clase: "vainilla",
     foto: vainillaFoto,
     items: ["300 g aprox.", "Sabor clásico", "Recién horneado"],
   },
@@ -67,7 +43,6 @@ const flavors = [
     descripcion:
       "Budín húmedo de limón con glaseado blanco de jugo de limón, ralladura amarilla y 3 rodajas caramelizadas comestibles.",
     precio: "$ 3.500",
-    clase: "limon",
     foto: limonFoto,
     items: ["Glaseado de limón", "Ralladura amarilla", "3 rodajas caramelizadas"],
   },
@@ -79,7 +54,6 @@ const flavors = [
     descripcion:
       "Budín de chocolate húmedo con chips por dentro y chips por arriba, chocolatoso sin exagerar.",
     precio: "$ 4.000",
-    clase: "chocolate",
     foto: chocolateFoto,
     items: ["Con chips", "Húmedo", "Chocolate intenso"],
   },
@@ -91,7 +65,6 @@ const flavors = [
     descripcion:
       "Budín sabor vainilla con frutos secos por dentro, glaseado blanco y más frutos secos por encima.",
     precio: "$ 5.000",
-    clase: "frutos",
     foto: frutosFoto,
     items: ["Vainilla", "Frutos secos", "Glaseado blanco"],
   },
@@ -103,7 +76,6 @@ const flavors = [
     descripcion:
       "Budín marmolado de vainilla y chocolate, decorado con hilos artesanales de ganache de chocolate oscuro y chocolate blanco.",
     precio: "$ 5.000",
-    clase: "marmolado",
     foto: marmoladoFoto,
     items: ["Vainilla y chocolate", "Ganache artesanal", "Edición Bonelia"],
   },
@@ -131,67 +103,12 @@ function Logo({ compact = false, word = true }) {
   );
 }
 
-function Cake({ type = "limon" }) {
+function FlavorVisual({ flavor, featured = false }) {
   return (
-    <div className={`cakeScene ${type}`}>
-      <div className="plate"></div>
-      <div className="cakeLoaf">
-        <div className="cakeBody"></div>
-        <div className="icing"></div>
-
-        {type === "limon" && (
-          <>
-            <div className="zest">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <b key={i}></b>
-              ))}
-            </div>
-            <div className="lemonSlices">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </>
-        )}
-
-        {type === "chocolate" && (
-          <div className="chips">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <b key={i}></b>
-            ))}
-          </div>
-        )}
-
-        {type === "frutos" && (
-          <div className="nuts">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <b key={i}></b>
-            ))}
-          </div>
-        )}
-
-        {type === "vainilla" && (
-          <div className="zest soft">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <b key={i}></b>
-            ))}
-          </div>
-        )}
-      </div>
+    <div className={`photoCake ${featured ? "photoCakeFeatured" : ""}`}>
+      <img src={flavor.foto} alt={flavor.nombre} />
     </div>
   );
-}
-
-function FlavorVisual({ flavor, featured = false }) {
-  if (flavor.foto) {
-    return (
-      <div className={`photoCake ${featured ? "photoCakeFeatured" : ""}`}>
-        <img src={flavor.foto} alt={flavor.nombre} />
-      </div>
-    );
-  }
-
-  return <Cake type={flavor.clase} />;
 }
 
 function App() {
@@ -207,10 +124,8 @@ function App() {
         </a>
 
         <div className="navLinks">
-          <a href="#sabores">Sabores</a>
-          <i></i>
-          <a href="#pedidos">Pedidos</a>
-          <i></i>
+          <a href="#sabores">Sabores</a><i></i>
+          <a href="#pedidos">Pedidos</a><i></i>
           <a href="#contacto">Contacto</a>
         </div>
 
@@ -245,10 +160,9 @@ function App() {
           </div>
 
           <h1>Budines artesanales recién horneados</h1>
-<p className="lead">
-  Budines artesanales preparados a pedido, con sabores clásicos, detalles cuidados y ese toque dulce que alegra el día.
-</p>
-          
+          <p className="lead">
+            Budines artesanales preparados a pedido, con sabores clásicos, detalles cuidados y ese toque dulce que alegra el día.
+          </p>
 
           <div className="actions">
             <a className="primary" href={whatsappLink()} target="_blank" rel="noreferrer">
@@ -259,7 +173,7 @@ function App() {
         </div>
 
         <div className="heroProduct reveal delay">
-          <FlavorVisual flavor={flavors[4]} featured />
+          <FlavorVisual flavor={selected} featured />
         </div>
 
         <div className="miniCards">
@@ -281,17 +195,34 @@ function App() {
 
         <div className="flavorGrid">
           {flavors.map((flavor, i) => (
-            <button
+            <article
               key={flavor.id}
-              onClick={() => setSelected(flavor)}
-              className={`flavorCard reveal ${selected.id === flavor.id ? "active" : ""} ${flavor.foto ? "withPhoto" : ""}`}
+              className={`flavorCard reveal ${selected.id === flavor.id ? "active" : ""} withPhoto`}
               style={{ animationDelay: `${i * 0.08}s` }}
             >
-              <FlavorVisual flavor={flavor} />
-              <h3>{flavor.carta}</h3>
-              <p>{flavor.texto}</p>
-              <strong>{flavor.precio}</strong>
-            </button>
+              <button
+                type="button"
+                className="flavorSelect"
+                onClick={() => setSelected(flavor)}
+                aria-label={`Ver ${flavor.carta}`}
+              >
+                <FlavorVisual flavor={flavor} />
+                <div className="flavorCardBody">
+                  <h3>{flavor.carta}</h3>
+                  <p>{flavor.texto}</p>
+                  <strong>{flavor.precio}</strong>
+                </div>
+              </button>
+
+              <a
+                className="miniOrderButton"
+                href={whatsappLink(flavor.carta)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MessageCircle size={16} /> Pedir
+              </a>
+            </article>
           ))}
         </div>
 
@@ -328,13 +259,14 @@ function App() {
 
         <div className="sectionTitle reveal">
           <small>PEDIDOS</small>
-          <h2>Simple, rápido y con cupos limitados</h2>
+          <h2>Reservá tu budín artesanal</h2>
+          <p>Elegí el sabor, escribinos por WhatsApp y coordinamos retiro o envío.</p>
         </div>
 
         <div className="steps">
           {[
             [Heart, "Elegí", "Mirá los sabores disponibles."],
-            [MessageCircle, "Escribinos", "El botón abre WhatsApp con el pedido armado."],
+            [MessageCircle, "Escribinos", "Te respondemos para coordinar sabor, cantidad y entrega."],
             [Truck, "Coordinamos", "Retiro en Parodi 236 o envío a coordinar."],
             [Gift, "Disfrutá", "Tu budín sale cuidado y fresco."],
           ].map(([Icon, title, text], i) => (
@@ -361,12 +293,7 @@ function App() {
             <a className="lightBtn" href={whatsappLink()} target="_blank" rel="noreferrer">
               <MessageCircle size={18} /> WhatsApp principal
             </a>
-            <a
-              className="lightBtn"
-              href={whatsappLink("", WHATSAPP_NUMBERS.alternativo)}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a className="lightBtn" href={whatsappLink("", WHATSAPP_NUMBERS.alternativo)} target="_blank" rel="noreferrer">
               <MessageCircle size={18} /> WhatsApp alternativo
             </a>
           </div>
@@ -407,6 +334,10 @@ function App() {
 
         <p className="copyright">© 2026 Bonelia · Pastelería Boutique</p>
       </section>
+
+      <a className="floatingWhatsapp" href={whatsappLink()} target="_blank" rel="noreferrer">
+        <MessageCircle size={20} /> Pedir
+      </a>
     </main>
   );
 }
