@@ -68,7 +68,7 @@ const flavors = [
       "Budín húmedo de limón con glaseado blanco de jugo de limón, ralladura amarilla y 3 rodajas caramelizadas comestibles.",
     precio: "$ 3.500",
     clase: "limon",
-    foto: null,
+    foto: limonFoto,
     items: ["Glaseado de limón", "Ralladura amarilla", "3 rodajas caramelizadas"],
   },
   {
@@ -92,7 +92,7 @@ const flavors = [
       "Budín sabor vainilla con frutos secos por dentro, glaseado blanco y más frutos secos por encima.",
     precio: "$ 5.000",
     clase: "frutos",
-    foto: null,
+    foto: frutosFoto,
     items: ["Vainilla", "Frutos secos", "Glaseado blanco"],
   },
   {
