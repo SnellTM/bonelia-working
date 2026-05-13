@@ -1,8 +1,23 @@
 import { createRoot } from "react-dom/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
-  Heart, MessageCircle, Truck, Clock, MapPin, Camera, Sparkles,
-  Star, Menu, X, Scale, ChefHat, Gift
+  Heart,
+  MessageCircle,
+  Truck,
+  Clock,
+  MapPin,
+  Camera,
+  Sparkles,
+  Star,
+  Menu,
+  X,
+  Scale,
+  ChefHat,
+  Gift,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play
 } from "lucide-react";
 
 import logoWordmark from "./assets/bonelia-wordmark.png";
@@ -81,6 +96,19 @@ const flavors = [
   },
 ];
 
+const reviews = [
+  "Riquísimo el de limonnn!! — Day",
+  "Mortal, un lujo 👍 — Isidro",
+  "El marmolado está tremendo, re húmedo.",
+  "Llegó hermoso, ideal para regalar.",
+  "El de chocolate no duró nada en casa jaja.",
+  "Muy casero, se nota el cuidado.",
+  "El glaseado del limón es una locura.",
+  "Pedí para la merienda y fue un diez.",
+  "Súper rico y muy buena presentación.",
+  "Se siente artesanal posta, me encantó."
+];
+
 function whatsappLink(flavor = "", phone = WHATSAPP_NUMBERS.principal) {
   const text = flavor
     ? `Hola Bonelia 💕 quiero hacer un pedido de ${flavor}.\n\nNombre:\nCantidad:\nRetiro o envío:\nMedio de pago:`
@@ -111,6 +139,91 @@ function FlavorVisual({ flavor, featured = false }) {
   );
 }
 
+function HeroCarousel({ items, onSelect }) {
+  const [index, setIndex] = useState(4);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(() => {
+      setIndex((current) => (current + 1) % items.length);
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, [paused, items.length]);
+
+  const goTo = (nextIndex) => {
+    const normalized = (nextIndex + items.length) % items.length;
+    setIndex(normalized);
+    onSelect(items[normalized]);
+  };
+
+  useEffect(() => {
+    onSelect(items[index]);
+  }, [index]);
+
+  const current = items[index];
+
+  return (
+    <div
+      className="heroCarousel"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="carouselImageWrap" key={current.id}>
+        <img src={current.foto} alt={current.nombre} />
+        <div className="carouselCaption">
+          <small>Sabor destacado</small>
+          <strong>{current.carta}</strong>
+        </div>
+      </div>
+
+      <button className="carouselArrow carouselPrev" onClick={() => goTo(index - 1)} aria-label="Imagen anterior">
+        <ChevronLeft size={22} />
+      </button>
+
+      <button className="carouselArrow carouselNext" onClick={() => goTo(index + 1)} aria-label="Imagen siguiente">
+        <ChevronRight size={22} />
+      </button>
+
+      <button className="carouselPause" onClick={() => setPaused(!paused)} aria-label={paused ? "Reproducir carrusel" : "Pausar carrusel"}>
+        {paused ? <Play size={17} /> : <Pause size={17} />}
+      </button>
+
+      <div className="carouselDots">
+        {items.map((item, dotIndex) => (
+          <button
+            key={item.id}
+            className={dotIndex === index ? "active" : ""}
+            onClick={() => goTo(dotIndex)}
+            aria-label={`Ver ${item.carta}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FloatingReviews() {
+  return (
+    <div className="reviewsCloud" aria-label="Comentarios de clientes">
+      {reviews.map((review, index) => (
+        <span
+          key={review}
+          className={`reviewBubble bubble${index + 1}`}
+          style={{
+            animationDelay: `${index * -1.7}s`,
+            animationDuration: `${11 + (index % 5) * 1.6}s`
+          }}
+        >
+          <Star size={15} />
+          {review}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function App() {
   const [selected, setSelected] = useState(flavors[4]);
   const [menu, setMenu] = useState(false);
@@ -124,8 +237,10 @@ function App() {
         </a>
 
         <div className="navLinks">
-          <a href="#sabores">Sabores</a><i></i>
-          <a href="#pedidos">Pedidos</a><i></i>
+          <a href="#sabores">Sabores</a>
+          <i></i>
+          <a href="#pedidos">Pedidos</a>
+          <i></i>
           <a href="#contacto">Contacto</a>
         </div>
 
@@ -173,7 +288,7 @@ function App() {
         </div>
 
         <div className="heroProduct reveal delay">
-          <FlavorVisual flavor={selected} featured />
+          <HeroCarousel items={flavors} onSelect={setSelected} />
         </div>
 
         <div className="miniCards">
@@ -293,7 +408,12 @@ function App() {
             <a className="lightBtn" href={whatsappLink()} target="_blank" rel="noreferrer">
               <MessageCircle size={18} /> WhatsApp principal
             </a>
-            <a className="lightBtn" href={whatsappLink("", WHATSAPP_NUMBERS.alternativo)} target="_blank" rel="noreferrer">
+            <a
+              className="lightBtn"
+              href={whatsappLink("", WHATSAPP_NUMBERS.alternativo)}
+              target="_blank"
+              rel="noreferrer"
+            >
               <MessageCircle size={18} /> WhatsApp alternativo
             </a>
           </div>
@@ -323,14 +443,7 @@ function App() {
           </a>
         </div>
 
-        <div className="reviews">
-          {["Hechos con amor", "Como en casa", "Presentación cuidada"].map((t) => (
-            <span key={t}>
-              <Star size={15} />
-              {t}
-            </span>
-          ))}
-        </div>
+        <FloatingReviews />
 
         <p className="copyright">© 2026 Bonelia · Pastelería Boutique</p>
       </section>
