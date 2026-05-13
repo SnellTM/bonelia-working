@@ -254,7 +254,7 @@ function App() {
 
       <section id="inicio" className="hero section">
   <div className="boneliaDecor heroFlower" aria-hidden="true">
-    <img src="/decor/flower-blur-1.webp" alt="" />
+    <img src="/decor/flower-blur-1.png" alt="" />
   </div>
 
   <div className="boneliaDecor heroPetals" aria-hidden="true">
