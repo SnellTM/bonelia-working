@@ -99,19 +99,19 @@ const flavors = [
 const reviews = [
   "Riquísimo el de limonnn!! — Day",
   "Mortal, un lujo 👍 — Isidro",
-  "Esta bien humedo, muy rico, me encantó — Meli.",
+  "Esta bien humedo, muy rico, me encantó 🤩 — Meli.",
   "Es bien esponjoso y perfecto — Nahuel.",
   "El de chocolate no duró nada en casa! — Agus.",
   "El glaseado del limón es una locura 🤤 — Fer.",
   "Llegó hermoso, ideal para regalar. — Vero.",
   "Pedí para la merienda y fue un éxito total — Vale.",
-  "Se siente artesanal posta, me encantó. — Luli."
+  "Se siente casero, artesanal, me encantó 🥰 — Luli."
 ];
 
 function whatsappLink(flavor = "", phone = WHATSAPP_NUMBERS.principal) {
   const text = flavor
     ? `Hola Bonelia 💕 quiero hacer un pedido de ${flavor}.\n\nNombre:\nCantidad:\nRetiro o envío:\nMedio de pago:`
-    : `Hola Bonelia 💕 quiero hacer un pedido.\n\nNombre:\nSabor:\nCantidad:\nRetiro o envío:\nMedio de pago:`;
+    : `Hola Bonelia 💕 quiero hacer un pedido.\n\nNombre:\nSabor:\nCantidad:\nRetiro o envío:\nMedio de pago:\nFecha y hora`;
   return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 }
 
@@ -384,7 +384,7 @@ function App() {
           {[
             [Heart, "Elegí", "Mirá los sabores disponibles."],
             [MessageCircle, "Escribinos", "Te respondemos para coordinar sabor, cantidad y entrega."],
-            [Truck, "Coordinamos", "Retiro en Parodi 236 o envío a coordinar."],
+            [Truck, "Coordinamos", "Retirás en el local o también te lo enviamos ."],
             [Gift, "Disfrutá", "Tu budín sale cuidado y fresco."],
           ].map(([Icon, title, text], i) => (
             <div className="step reveal" style={{ animationDelay: `${i * 0.08}s` }} key={title}>
@@ -405,8 +405,8 @@ function App() {
           <Logo word={false} />
 
           <div>
-            <h2>Pedidos abiertos para el fin de semana</h2>
-            <p>Tomamos pedidos jueves y viernes. Los cupos son limitados para mantener la calidad.</p>
+            <h2>Pedidos abiertos </h2>
+            <p>Tomamos pedidos con 12hs de anticipación. Los cupos son limitados para mantener la calidad.</p>
           </div>
 
           <div className="actions ctaActions">
@@ -434,13 +434,13 @@ function App() {
           <div>
             <MapPin />
             <strong>Resistencia, Chaco</strong>
-            <span>Parodi 236 · retiro o envío a coordinar</span>
+            <span>Parodi 230· retiro o envío a coordinar</span>
           </div>
 
           <div>
             <Clock />
             <strong>Pedidos</strong>
-            <span>Jueves y viernes</span>
+            <span>Con 12hs de Anticipación</span>
           </div>
 
           <a className="contactLink" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
