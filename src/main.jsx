@@ -99,14 +99,13 @@ const flavors = [
 const reviews = [
   "Riquísimo el de limonnn!! — Day",
   "Mortal, un lujo 👍 — Isidro",
-  "El marmolado está tremendo, re húmedo.",
-  "Llegó hermoso, ideal para regalar.",
-  "El de chocolate no duró nada en casa jaja.",
-  "Muy casero, se nota el cuidado.",
-  "El glaseado del limón es una locura.",
-  "Pedí para la merienda y fue un diez.",
-  "Súper rico y muy buena presentación.",
-  "Se siente artesanal posta, me encantó."
+  "Esta bien humedo, muy rico, me encantó — Meli.",
+  "Es bien esponjoso y perfecto — Nahuel.",
+  "El de chocolate no duró nada en casa! — Agus.",
+  "El glaseado del limón es una locura 🤤 — Fer.",
+  "Llegó hermoso, ideal para regalar. — Vero.",
+  "Pedí para la merienda y fue un éxito total — Vale.",
+  "Se siente artesanal posta, me encantó. — Luli."
 ];
 
 function whatsappLink(flavor = "", phone = WHATSAPP_NUMBERS.principal) {
@@ -148,7 +147,6 @@ function HeroCarousel({ items, onSelect }) {
     const timer = setInterval(() => {
       setIndex((current) => (current + 1) % items.length);
     }, 2000);
-
     return () => clearInterval(timer);
   }, [paused, items.length]);
 
@@ -208,14 +206,7 @@ function FloatingReviews() {
   return (
     <div className="reviewsCloud" aria-label="Comentarios de clientes">
       {reviews.map((review, index) => (
-        <span
-          key={review}
-          className={`reviewBubble bubble${index + 1}`}
-          style={{
-            animationDelay: `${index * -1.7}s`,
-            animationDuration: `${11 + (index % 5) * 1.6}s`
-          }}
-        >
+        <span key={review} className={`reviewBubble bubble${index + 1}`}>
           <Star size={15} />
           {review}
         </span>
