@@ -220,3 +220,131 @@ main::after{
     opacity:.08;
   }
 }
+/* FIX BONELIA - COMENTARIOS HORIZONTALES + LIMPIEZA DECORACIÓN
+   Pegá TODO esto al FINAL de src/styles.css
+*/
+
+/* Sacamos definitivamente los garabatos / ramas dibujadas con CSS */
+.botanical,
+.botanical::before,
+.botLeft,
+.botRight,
+.botanical.small,
+.botanical.small.left,
+.botanical.small.right,
+.botanical.bottom,
+.hero::before,
+.hero::after,
+.sectionTitle::before,
+.sectionTitle::after,
+.flavorsSection::before,
+.orderSection::before,
+.footer::before{
+  display:none !important;
+  content:none !important;
+  opacity:0 !important;
+}
+
+/* Dejamos el fondo limpio */
+main::after{
+  display:none !important;
+}
+
+/* Ocultamos el sistema viejo de comentarios flotantes desordenados */
+.reviewsCloud{
+  position:relative !important;
+  max-width:100% !important;
+  min-height:auto !important;
+  height:auto !important;
+  margin:34px 0 20px !important;
+  overflow:hidden !important;
+  border-radius:0 !important;
+  display:flex !important;
+  width:100% !important;
+}
+
+/* Convertimos cada comentario en parte de una fila horizontal */
+.reviewBubble{
+  position:static !important;
+  flex:0 0 auto !important;
+  max-width:none !important;
+  white-space:nowrap !important;
+  margin-right:14px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding:12px 18px !important;
+  border-radius:999px !important;
+  color:var(--wine) !important;
+  background:#f5dad6 !important;
+  font-weight:900 !important;
+  font-size:15px !important;
+  line-height:1 !important;
+  box-shadow:0 12px 25px rgba(142,47,59,.08) !important;
+  animation:none !important;
+}
+
+/* La cinta que se mueve */
+.reviewsCloud::before,
+.reviewsCloud::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:70px;
+  z-index:2;
+  pointer-events:none;
+}
+
+.reviewsCloud::before{
+  left:0;
+  background:linear-gradient(90deg,#f7e5db,transparent);
+}
+
+.reviewsCloud::after{
+  right:0;
+  background:linear-gradient(270deg,#f7e5db,transparent);
+}
+
+/* Movimiento horizontal suave */
+.reviewsCloud{
+  mask-image:linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image:linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.reviewsCloud .reviewBubble{
+  animation:reviewMarquee 26s linear infinite !important;
+}
+
+/* Cada burbuja mantiene distancia y se mueve en bloque */
+@keyframes reviewMarquee{
+  from{
+    transform:translateX(100vw);
+  }
+  to{
+    transform:translateX(-980px);
+  }
+}
+
+/* Pausa si alguien apoya el mouse en PC */
+.reviewsCloud:hover .reviewBubble{
+  animation-play-state:paused !important;
+}
+
+/* En celu */
+@media(max-width:900px){
+  .reviewsCloud{
+    margin:30px -18px 18px !important;
+    padding:0 18px !important;
+  }
+
+  .reviewBubble{
+    font-size:14px !important;
+    padding:11px 15px !important;
+    margin-right:10px !important;
+  }
+
+  .reviewsCloud .reviewBubble{
+    animation-duration:22s !important;
+  }
+}
