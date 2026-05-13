@@ -541,3 +541,4 @@ body::before {
     opacity: 0.12;
   }
 }
+/* FIX BONELIA - CARRUSEL INDEPENDIENTE + ALTURAS ESTABLES */ /* Evita saltitos por descripciones mÃ¡s largas cuando el usuario cambia sabores */ .selectedPanel{ min-height:440px; } .selectedText{ min-height:390px; display:flex; flex-direction:column; justify-content:center; } .selectedText p{ min-height:92px; } .tags{ min-height:42px; } .priceRow{ min-height:58px; } /* Carrusel visual estable */ .heroCarousel{ height:360px; min-height:360px; } .carouselImageWrap img{ height:100%; object-fit:cover; } @media(max-width:900px){ .selectedPanel{ min-height:auto; } .selectedText{ min-height:420px; justify-content:flex-start; } .selectedText p{ min-height:145px; } .heroCarousel{ height:265px; min-height:265px; } }
