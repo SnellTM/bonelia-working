@@ -21,3 +21,202 @@ main:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;ba
 @media(max-width:900px){.section{padding:82px 18px;scroll-margin-top:120px}.navLinks,.navButton{display:none}.mobileBtn{display:grid;place-items:center}.nav{top:16px;padding:12px 14px}.navBrand{font-size:22px;letter-spacing:.22em}.navBrand .realLogoCompact .realLogoMark{width:48px;height:48px}.hero{grid-template-columns:1fr;grid-template-areas:"text" "product" "cards";padding-top:118px;gap:28px;min-height:auto}.heroProduct{display:flex;min-height:280px}.heroProduct .photoCakeFeatured{width:100%;height:265px;min-height:265px}.heroLogo{width:100%}.heroLogo .realLogoWord{width:100%;max-width:420px}.hero h1{font-size:46px}.lead{font-size:18px}.actions{gap:10px}.primary,.secondary{padding:14px 18px}.miniCards{grid-template-columns:1fr;margin:0}.miniCards span{border-right:0;border-bottom:1px solid rgba(184,106,112,.22)}.miniCards span:last-child{border-bottom:0}.sectionTitle h2,.selectedText h2{font-size:44px}.flavorGrid{grid-template-columns:1fr;gap:18px}.flavorCard{border-radius:28px;padding:16px}.flavorSelect{text-align:center}.flavorCard.withPhoto .photoCake,.flavorCard .photoCake{height:210px;border-radius:22px;margin-bottom:18px}.flavorCard h3{font-size:31px}.flavorCard p{font-size:16px}.flavorCard strong{font-size:34px}.miniOrderButton{padding:14px 18px;font-size:16px}.selectedPanel{grid-template-columns:1fr;border-radius:28px}.selectedVisual{min-height:280px;overflow:hidden;padding:18px}.selectedVisual .photoCakeFeatured{height:265px;min-height:265px}.selectedText{padding:28px}.steps{grid-template-columns:1fr;gap:8px}.step{border-right:0;border-bottom:1px solid rgba(184,106,112,.22)}.ctaCard{grid-template-columns:1fr;text-align:center;border-radius:26px}.ctaActions{display:flex;justify-content:center}.contactBox{grid-template-columns:1fr}.botanical{opacity:.22}.botLeft{left:-130px}.botRight{right:-150px}.floatingWhatsapp{position:fixed;z-index:80;left:18px;right:18px;bottom:18px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wine);color:var(--cream);font-weight:900;padding:15px 18px;border-radius:999px;box-shadow:0 18px 40px rgba(80,25,34,.28)}.footer{padding-bottom:96px}}
 /* CARRUSEL HERO BONELIA */ .heroCarousel{ position:relative; width:min(560px,100%); height:360px; border-radius:30px; overflow:hidden; background:rgba(255,247,239,.42); box-shadow:0 22px 55px rgba(142,47,59,.16); border:1px solid rgba(255,255,255,.55); } .carouselImageWrap{ position:absolute; inset:0; animation:carouselIn .32s ease both; } .carouselImageWrap img{ width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.01); } .carouselCaption{ position:absolute; left:18px; right:18px; bottom:18px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; border-radius:999px; background:rgba(255,247,239,.78); backdrop-filter:blur(12px); color:var(--wine); box-shadow:0 12px 28px rgba(80,44,34,.12); } .carouselCaption small{ font-size:11px; text-transform:uppercase; letter-spacing:.28em; font-weight:900; } .carouselCaption strong{ font-family:'Cormorant Garamond',serif; font-size:26px; line-height:1; } .carouselArrow, .carouselPause{ position:absolute; z-index:5; border:0; display:grid; place-items:center; background:rgba(255,247,239,.82); color:var(--wine); box-shadow:0 12px 26px rgba(80,44,34,.13); cursor:pointer; transition:.2s ease; } .carouselArrow{ top:50%; width:42px; height:42px; border-radius:50%; transform:translateY(-50%); } .carouselPrev{left:12px} .carouselNext{right:12px} .carouselPause{ top:12px; right:12px; width:38px; height:38px; border-radius:50%; } .carouselArrow:hover, .carouselPause:hover{ background:var(--wine); color:var(--cream); } .carouselDots{ position:absolute; left:0; right:0; bottom:74px; display:flex; justify-content:center; gap:7px; z-index:5; } .carouselDots button{ width:8px; height:8px; padding:0; border:0; border-radius:999px; background:rgba(255,247,239,.72); cursor:pointer; transition:.2s ease; } .carouselDots button.active{ width:24px; background:var(--wine); } @keyframes carouselIn{ from{opacity:0;transform:translateX(18px) scale(.985)} to{opacity:1;transform:none} } /* COMENTARIOS FLOTANTES BONELIA */ .reviews{ display:none; } .reviewsCloud{ position:relative; max-width:980px; min-height:220px; margin:34px auto 18px; overflow:hidden; border-radius:34px; } .reviewBubble{ position:absolute; display:inline-flex; align-items:center; gap:7px; max-width:310px; padding:11px 15px; border-radius:999px; color:var(--wine); background:#f5dad6; font-weight:900; font-size:14px; box-shadow:0 14px 28px rgba(142,47,59,.08); animation-name:bubbleFloat; animation-timing-function:ease-in-out; animation-iteration-count:infinite; will-change:transform; } .reviewBubble svg{ flex:0 0 auto; } .bubble1{left:4%;top:10%} .bubble2{left:43%;top:7%} .bubble3{left:67%;top:24%} .bubble4{left:14%;top:41%} .bubble5{left:49%;top:44%} .bubble6{left:5%;top:72%} .bubble7{left:36%;top:76%} .bubble8{left:70%;top:66%} .bubble9{left:28%;top:23%} .bubble10{left:61%;top:84%} @keyframes bubbleFloat{ 0%,100%{transform:translateY(0) translateX(0)} 25%{transform:translateY(-12px) translateX(6px)} 50%{transform:translateY(10px) translateX(-5px)} 75%{transform:translateY(-6px) translateX(-9px)} } @media(max-width:900px){ .heroCarousel{ width:100%; height:265px; border-radius:28px; } .carouselCaption{ left:12px; right:12px; bottom:12px; padding:10px 12px; } .carouselCaption small{ display:none; } .carouselCaption strong{ font-size:22px; } .carouselDots{ bottom:62px; } .carouselArrow{ width:38px; height:38px; } .reviewsCloud{ min-height:330px; margin-top:28px; overflow:hidden; } .reviewBubble{ max-width:270px; font-size:13px; padding:10px 13px; } .bubble1{left:2%;top:4%} .bubble2{left:34%;top:14%} .bubble3{left:8%;top:25%} .bubble4{left:40%;top:35%} .bubble5{left:4%;top:48%} .bubble6{left:36%;top:58%} .bubble7{left:12%;top:71%} .bubble8{left:42%;top:81%} .bubble9{left:18%;top:91%} .bubble10{left:0%;top:84%} }
 /* FIX REVIEWS BONELIA - BURBUJAS ORDENADAS EN VERTICAL */ .reviews{ display:none !important; } .reviewsCloud{ position:relative; max-width:980px; margin:38px auto 18px; min-height:620px; overflow:visible; border-radius:34px; } .reviewBubble{ position:absolute; display:inline-flex; align-items:center; gap:8px; max-width:390px; padding:12px 17px; border-radius:999px; color:var(--wine); background:#f5dad6; font-weight:900; font-size:15px; line-height:1.25; box-shadow:0 14px 28px rgba(142,47,59,.08); white-space:normal; will-change:transform; animation:bubbleSoftFloat 7.5s ease-in-out infinite; } .reviewBubble svg{ flex:0 0 auto; } .bubble1{left:3%;top:0%;animation-delay:-.4s} .bubble2{right:6%;top:11%;animation-delay:-1.1s} .bubble3{left:5%;top:23%;animation-delay:-2.2s} .bubble4{right:7%;top:35%;animation-delay:-3s} .bubble5{left:4%;top:47%;animation-delay:-4.2s} .bubble6{right:8%;top:59%;animation-delay:-5.1s} .bubble7{left:6%;top:71%;animation-delay:-6s} .bubble8{right:6%;top:83%;animation-delay:-7s} .bubble9{left:16%;top:94%;animation-delay:-8s} @keyframes bubbleSoftFloat{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} } @media(max-width:900px){ .reviewsCloud{ min-height:710px; margin-top:34px; } .reviewBubble{ max-width:82%; font-size:14px; padding:11px 14px; } .bubble1{left:4%;right:auto;top:0%} .bubble2{left:auto;right:3%;top:10%} .bubble3{left:6%;right:auto;top:21%} .bubble4{left:auto;right:4%;top:33%} .bubble5{left:4%;right:auto;top:45%} .bubble6{left:auto;right:4%;top:57%} .bubble7{left:5%;right:auto;top:69%} .bubble8{left:auto;right:4%;top:81%} .bubble9{left:8%;right:auto;top:93%} }
+/* DECORACIÓN FLORAL FINA BONELIA
+   Pegar al FINAL de src/styles.css
+   Esto elimina los garabatos viejos y suma detalles más delicados.
+*/
+
+/* Apaga los garabatos/palitos anteriores */
+.botanical,
+.botanical::before,
+.botLeft,
+.botRight,
+.botanical.small,
+.botanical.small.left,
+.botanical.small.right,
+.botanical.bottom{
+  display:none !important;
+}
+
+/* Detalles suaves generales */
+main::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.42;
+  background:
+    radial-gradient(circle at 7% 18%, rgba(255,247,239,.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 11% 24%, rgba(255,247,239,.65) 0 2px, transparent 3px),
+    radial-gradient(circle at 91% 19%, rgba(255,247,239,.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 87% 27%, rgba(255,247,239,.65) 0 2px, transparent 3px);
+}
+
+/* Hojitas boutique detrás de títulos, muy sutiles */
+.sectionTitle{
+  position:relative;
+}
+
+.sectionTitle::before,
+.sectionTitle::after{
+  content:"";
+  position:absolute;
+  width:155px;
+  height:155px;
+  opacity:.16;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 50% 10%, rgba(142,47,59,.72) 0 10%, transparent 11%),
+    radial-gradient(ellipse at 68% 28%, rgba(142,47,59,.62) 0 9%, transparent 10%),
+    radial-gradient(ellipse at 38% 34%, rgba(142,47,59,.55) 0 9%, transparent 10%),
+    radial-gradient(ellipse at 62% 54%, rgba(142,47,59,.52) 0 8%, transparent 9%),
+    linear-gradient(110deg, transparent 0 48%, rgba(142,47,59,.45) 49% 51%, transparent 52%);
+  border-radius:50%;
+  filter:blur(.1px);
+}
+
+.sectionTitle::before{
+  left:-95px;
+  top:10px;
+  transform:rotate(-34deg);
+}
+
+.sectionTitle::after{
+  right:-95px;
+  top:10px;
+  transform:scaleX(-1) rotate(-34deg);
+}
+
+/* Ramitas finas en el hero */
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  width:240px;
+  height:240px;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.18;
+  background:
+    radial-gradient(ellipse at 28% 18%, rgba(142,47,59,.65) 0 8%, transparent 9%),
+    radial-gradient(ellipse at 42% 30%, rgba(142,47,59,.48) 0 7%, transparent 8%),
+    radial-gradient(ellipse at 56% 45%, rgba(142,47,59,.48) 0 7%, transparent 8%),
+    radial-gradient(ellipse at 70% 61%, rgba(142,47,59,.42) 0 7%, transparent 8%),
+    linear-gradient(132deg, transparent 0 48%, rgba(142,47,59,.45) 49% 50%, transparent 51%);
+}
+
+.hero::before{
+  left:-110px;
+  top:110px;
+  transform:rotate(-12deg);
+}
+
+.hero::after{
+  right:-120px;
+  bottom:90px;
+  transform:scaleX(-1) rotate(-12deg);
+}
+
+/* Florcitas tipo gypsophila muy delicadas en contacto */
+.footer::before{
+  content:"";
+  position:absolute;
+  left:12px;
+  bottom:90px;
+  width:190px;
+  height:240px;
+  opacity:.28;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255,247,239,.95) 0 5px, transparent 6px),
+    radial-gradient(circle at 28% 23%, rgba(255,247,239,.95) 0 4px, transparent 5px),
+    radial-gradient(circle at 42% 18%, rgba(255,247,239,.85) 0 4px, transparent 5px),
+    radial-gradient(circle at 34% 38%, rgba(255,247,239,.85) 0 5px, transparent 6px),
+    radial-gradient(circle at 55% 35%, rgba(255,247,239,.8) 0 4px, transparent 5px),
+    linear-gradient(120deg, transparent 0 42%, rgba(125,99,69,.34) 43% 44%, transparent 45%),
+    linear-gradient(138deg, transparent 0 48%, rgba(125,99,69,.22) 49% 50%, transparent 51%);
+}
+
+/* Pétalos suaves en algunas esquinas */
+.flavorsSection::before,
+.orderSection::before{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:0;
+  width:210px;
+  height:210px;
+  opacity:.16;
+  background:
+    radial-gradient(ellipse at 35% 35%, rgba(169,78,89,.75) 0 12%, transparent 13%),
+    radial-gradient(ellipse at 58% 42%, rgba(169,78,89,.55) 0 10%, transparent 11%),
+    radial-gradient(ellipse at 45% 65%, rgba(169,78,89,.45) 0 9%, transparent 10%);
+  filter:blur(.2px);
+}
+
+.flavorsSection::before{
+  right:-70px;
+  top:90px;
+  transform:rotate(24deg);
+}
+
+.orderSection::before{
+  left:-70px;
+  bottom:80px;
+  transform:rotate(-18deg);
+}
+
+/* En celu: más limpio, menos decoración para que no tape nada */
+@media(max-width:900px){
+  main::after{
+    opacity:.25;
+  }
+
+  .sectionTitle::before,
+  .sectionTitle::after{
+    width:95px;
+    height:95px;
+    opacity:.10;
+  }
+
+  .sectionTitle::before{
+    left:-55px;
+    top:8px;
+  }
+
+  .sectionTitle::after{
+    right:-55px;
+    top:8px;
+  }
+
+  .hero::before,
+  .hero::after{
+    width:150px;
+    height:150px;
+    opacity:.10;
+  }
+
+  .hero::before{
+    left:-90px;
+    top:140px;
+  }
+
+  .hero::after{
+    right:-90px;
+    bottom:40px;
+  }
+
+  .footer::before{
+    width:120px;
+    height:160px;
+    opacity:.18;
+    bottom:130px;
+    left:-20px;
+  }
+
+  .flavorsSection::before,
+  .orderSection::before{
+    opacity:.08;
+  }
+}
