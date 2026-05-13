@@ -246,8 +246,8 @@ function App() {
 
           <h1>Budines artesanales recién horneados</h1>
           <p className="lead">
-            Pequeños placeres para endulzar el día. Caseros, cercanos y con presentación cuidada.
-          </p>
+  Budines artesanales recién horneados, preparados a pedido con sabores simples, ricos y presentación cuidada.
+</p>
 
           <div className="actions">
             <a className="primary" href={whatsappLink()} target="_blank" rel="noreferrer">
