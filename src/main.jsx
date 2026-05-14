@@ -68,7 +68,7 @@ const flavors = [
     texto: "Chocolate intenso.",
     descripcion:
       "Budín de chocolate húmedo con chips por dentro y chips por arriba, chocolatoso sin exagerar.",
-    precio: "$ 4.000",
+    precio: "$ 4.500",
     foto: chocolateFoto,
     items: ["Con chips", "Húmedo", "Chocolate intenso"],
   },
