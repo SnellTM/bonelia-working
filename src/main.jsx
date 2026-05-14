@@ -99,6 +99,7 @@ const flavors = [
 const reviews = [
   "Riquísimo el de limonnn!! — Day",
   "Mortal, un lujo 👍 — Isidro",
+  "Muy rico el de chocolate — Román",
   "Esta bien humedo, muy rico, me encantó 🤩 — Meli.",
   "Es bien esponjoso y perfecto — Nahuel.",
   "El de chocolate no duró nada en casa! — Agus.",
